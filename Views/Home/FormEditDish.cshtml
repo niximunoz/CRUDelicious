@@ -1,0 +1,46 @@
+@model Dish
+
+<div class="text-center">
+    <h1 class="display-4">Edit @Model.Name</h1>
+    <h4>
+        <a asp-controller="Home" asp-action="Index">Home</a> | 
+        <a asp-controller="Home" asp-action="FormDish">Add a Dish</a>
+    </h4>
+</div>
+<form method="POST" asp-controller="Home" asp-action="UpdateDish" asp-route-id_dish="@Model.DishId">
+    <div>
+        <label asp-for="Chef">Chef's Name:</label>
+        <input type="text" asp-for="Chef" value="@Model.Chef">
+        <span asp-validation-for="Chef"></span>
+    </div>
+    <div>
+        <label asp-for="Name">Name of Dish:</label>
+        <input type="text" asp-for="Name" value="@Model.Name">
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <label asp-for="Calories"># of Calories:</label>
+        <input type="number" asp-for="Calories" value="@Model.Calories">
+        <span asp-validation-for="Calories"></span>
+    </div>
+    <div>
+        <label asp-for="Tastiness">Tastiness:</label>
+        <select asp-for="Tastiness">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <span asp-validation-for="Tastiness"></span>
+    </div>
+    <div>
+        <label asp-for="Description">Descripcion:</label>
+        <textarea asp-for="Description">@Model.Description</textarea>
+        <span asp-validation-for="Description"></span>
+    </div>
+    <button class="btn btn-primary">
+        Edit Dish
+    </button>
+
+</form>
